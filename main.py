@@ -1,5 +1,5 @@
 import time
-from os import listdir, getcwd, stat
+from os import listdir, stat
 from shutil import copyfile
 from stat import ST_MTIME
 
@@ -8,7 +8,7 @@ files_in_b = []
 
 def check_path(p):
 	if p == '':
-		return getcwd()
+		raise Exception('Path can`t be empty')
 	return p
 
 def push_file(dir_list, files_list):
@@ -52,14 +52,14 @@ def compare(files_in_a, files_in_b, variant, path_a, path_b, path_log):
 			f_l.close()
 
 path_a = input('Input path folder A: ')
+path_a = check_path(path_a)
 path_b = input('Input path folder B: ')
+path_b = check_path(path_b)
 variant = int(input('From A to B(1) or from B to A(2). Input number: '))
 path_log = input('Input path for log-file: ')
-print('-'*20)
-
-path_a = check_path(path_a)
-path_b = check_path(path_b)
 path_log = check_path(path_log)
+
+
 path_log += '/log.txt'
 f = open(path_log, 'w')
 f.write('')
