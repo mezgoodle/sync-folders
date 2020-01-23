@@ -11,13 +11,9 @@ def check_path(p):
 		return getcwd()
 	return p
 
-def push_file(dir_list, files_list, path_in):
+def push_file(dir_list, files_list):
 	for file in dir_list:
 		files_list.append(file)
-		
-	print("Files and directories in '", path_in, "' :")
-	print(files_list)
-	print('-'*20)
 
 def compare(files_in_a, files_in_b, variant, path_a, path_b, path_log):
 	if variant == 1:
@@ -72,7 +68,7 @@ f.close()
 dir_list_a = listdir(path_a)
 dir_list_b = listdir(path_b)
 
-push_file(dir_list_a, files_in_a, path_a)
-push_file(dir_list_b, files_in_b, path_b)
+push_file(dir_list_a, files_in_a)
+push_file(dir_list_b, files_in_b)
 
 compare(files_in_a, files_in_b, variant, path_a, path_b, path_log)
