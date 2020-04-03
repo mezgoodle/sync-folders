@@ -21,7 +21,6 @@ def compare(files_in_a, files_in_b, variant, path_a, path_b, path_log):
 	else:
 		f_1, f_2 = files_in_b, files_in_a	
 		path_a, path_b = path_b, path_a
-
 	for file in f_1:
 		if file in f_2:
 			path_a_f = path_a+'/'+f_1[f_1.index(file)]
@@ -41,7 +40,6 @@ def compare(files_in_a, files_in_b, variant, path_a, path_b, path_log):
 				text = 'Modified: ' + path_b_f + ' -> ' + path_a_f + '\n'
 				f_l.write(text)
 				f_l.close()
-			
 		else:
 			path_a_f = path_a+'/'+f_1[f_1.index(file)]
 			path_b_create = path_b+'/'+f_1[f_1.index(file)]
