@@ -8,4 +8,3 @@ This is file for synchronization two folders by checking date of changing files 
 ```bash
 python main.py
 ```
- 
