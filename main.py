@@ -19,7 +19,7 @@ def compare(files_in_a, files_in_b, variant, path_a, path_b, path_log):
 	if variant == 1:
 		f_1, f_2 = files_in_a, files_in_b
 	else:
-		f_1, f_2 = files_in_b, files_in_a	
+		f_1, f_2 = files_in_b, files_in_a
 		path_a, path_b = path_b, path_a
 	for file in f_1:
 		if file in f_2:
