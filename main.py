@@ -6,6 +6,7 @@ from stat import ST_MTIME
 files_in_a = []
 files_in_b = []
 
+
 def check_path(p):
 	if p == '':
 		raise Exception('Path can`t be empty')
