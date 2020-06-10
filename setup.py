@@ -4,7 +4,7 @@ setup(
     name='sync-folders',
     packages = ['sync-folders'],
     package_dir={'': 'src'},
-    version = '0.1',
+    version = '0.1.1',
     license='MIT',
     description = 'Library for synchronization two folders',
     author = 'Maxim Zavalniuk',
