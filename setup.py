@@ -3,8 +3,7 @@ from setuptools import setup
 setup(
     name='sync-folders',
     packages = ['sync_folders'],
-    package_dir={'': 'src'},
-    version = '0.1.4',
+    version = '0.1.5',
     license='MIT',
     description = 'Library for synchronization two folders',
     author = 'Maxim Zavalniuk',
