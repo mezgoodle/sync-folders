@@ -7,7 +7,7 @@ TEST_DIR_LIST = ['requirements.txt', 'sync_folders',
                  '.gitignore', 'setup.py',
                  'README.md', 'setup.cfg',
                  'util', 'tests',
-                 '.github', 'LICENSE']
+                 '.github', 'LICENSE', '.gitattributes']
 TEST_FILES = [
     '.gitignore',
     'LICENSE',
@@ -15,4 +15,5 @@ TEST_FILES = [
     'requirements.txt',
     'setup.cfg',
     'setup.py',
-    '_config.yml']
+    '_config.yml',
+    '.gitattributes']
