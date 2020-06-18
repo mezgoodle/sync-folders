@@ -39,6 +39,3 @@ def get_files(path):
                 'date_str': convert_date(info.st_mtime),
             })
     return files
-
-
-print(get_files('./')[0])

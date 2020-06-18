@@ -13,4 +13,4 @@ def test_dir():
         main.list_dir(
             consts.TEST_DIR_PATH)) == set(
         consts.TEST_DIR_LIST)
-    assert main.get_files(consts.TEST_DIR_PATH)[0]['date'] == consts.TEST_DATE
+    assert len(main.get_files(consts.TEST_DIR_PATH)) == consts.TEST_NUM
