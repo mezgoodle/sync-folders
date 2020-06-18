@@ -16,3 +16,11 @@ def write_file(path):
 def list_dir(path):
     entries = os.listdir(path)
     return entries
+
+
+def files_in_dir(path):
+    files = []
+    for entry in os.listdir(path):
+        if os.path.isfile(os.path.join(path, entry)):
+            files.append(entry)
+    return files
