@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+import shutil
 
 
 def convert_date(timestamp):
@@ -39,3 +40,22 @@ def get_files(path):
                 'date_str': convert_date(info.st_mtime),
             })
     return files
+
+
+def sync(path_a, path_b):
+    logs = ''
+    files_in_a = get_files(path_a)
+    files_in_b = get_files(path_b)
+    for file_a in files_in_a:
+        for file_b in files_in_b:
+            if file_b['name'] == file_a['name']:
+                # compare dates
+                if file_b['date'] < file_a['date']:
+                    # change
+                    shutil.copy(path_a + '/' + file_a['name'], path_b)
+                    logs += f"Change {file_a['name']} in {path_b}\n"
+            else:
+                # move to b
+                shutil.copy(path_a + '/' + file_a['name'], path_b)
+                logs += f"Create {file_a['name']} in {path_b}\n"
+    write_file('./logs.txt', logs)
