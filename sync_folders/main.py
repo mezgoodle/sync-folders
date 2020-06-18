@@ -1,3 +1,6 @@
+import os
+
+
 def read_file(path):
     with open(path, 'r') as f:
         data = f.read()
@@ -8,3 +11,8 @@ def write_file(path):
     with open(path, 'w') as f:
         data = 'some data to be written to the file'
         f.write(data)
+
+
+def list_dir(path):
+    entries = os.listdir(path)
+    return entries
