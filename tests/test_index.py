@@ -14,3 +14,18 @@ def test_dir():
             consts.TEST_DIR_PATH)) == set(
         consts.TEST_DIR_LIST)
     assert len(main.get_files(consts.TEST_DIR_PATH)) == consts.TEST_NUM
+
+
+def test_sync():
+    main.sync(consts.TEST_DIR_PATH_1, consts.TEST_DIR_PATH_2)
+    assert main.read_file(
+        consts.TEST_DIR_PATH_1 +
+        consts.TEST_FILE_PATH) == main.read_file(
+        consts.TEST_DIR_PATH_2 +
+        consts.TEST_FILE_PATH)
+    assert main.read_file(
+        consts.TEST_DIR_PATH_1 +
+        consts.TEST_FILE_PATH_1) == main.read_file(
+        consts.TEST_DIR_PATH_2 +
+        consts.TEST_FILE_PATH_1)
+    assert main.read_file(consts.TEST_FILE_PATH_2) != ''
