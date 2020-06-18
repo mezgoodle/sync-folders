@@ -10,4 +10,5 @@ def test_reading():
 
 
 def test_dir():
+    print(main.list_dir(consts.TEST_DIR_PATH))
     assert main.list_dir(consts.TEST_DIR_PATH) == consts.TEST_DIR_LIST
