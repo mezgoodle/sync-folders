@@ -7,9 +7,8 @@ def read_file(path):
     return data
 
 
-def write_file(path):
+def write_file(path, data):
     with open(path, 'w') as f:
-        data = 'some data to be written to the file'
         f.write(data)
 
 

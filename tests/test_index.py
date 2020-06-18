@@ -3,10 +3,9 @@ from util import consts
 
 
 def test_reading():
-    assert main.read_file(consts.TEST_PATH) == 'text for the test'
+    assert main.read_file(consts.TEST_PATH) == consts.TEST_TEXT
     main.write_file(consts.TEST_PATH)
-    assert main.read_file(
-        consts.TEST_PATH) == 'some data to be written to the file'
+    assert main.read_file(consts.TEST_PATH, consts.TEST_CHANGE_TEXT) == consts.TEST_CHANGE_TEXT
 
 
 def test_dir():
