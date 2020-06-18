@@ -10,4 +10,5 @@ def test_reading():
 
 
 def test_dir():
-    assert len(main.list_dir(consts.TEST_DIR_PATH)) == len(consts.TEST_DIR_LIST)
+    assert set(main.list_dir(consts.TEST_DIR_PATH)) == set(consts.TEST_DIR_LIST)
+    assert set(main.files_in_dir(consts.TEST_DIR_PATH)) == set(consts.TEST_FILES)

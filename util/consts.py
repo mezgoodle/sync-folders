@@ -6,3 +6,11 @@ TEST_DIR_LIST = ['requirements.txt', 'sync_folders',
                  'README.md', 'setup.cfg',
                  'util', 'tests',
                  '.github', 'LICENSE']
+TEST_FILES = [
+    '.gitignore',
+    'LICENSE',
+    'README.md',
+    'requirements.txt',
+    'setup.cfg',
+    'setup.py',
+    '_config.yml']
