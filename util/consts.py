@@ -2,12 +2,7 @@ TEST_PATH = './tests/text.txt'
 TEST_TEXT = 'text for the test'
 TEST_CHANGE_TEXT = 'some data to be written to the file'
 TEST_DIR_PATH = './'
-TEST_DIR_LIST = ['requirements.txt', 'sync_folders',
-                 '.git', '_config.yml',
-                 '.gitignore', 'setup.py',
-                 'README.md', 'setup.cfg',
-                 'util', 'tests',
-                 '.github', 'LICENSE', '.gitattributes']
+TEST_DIR_LIST = ['.git', '.github', 'sync_folders', 'tests', 'util']
 TEST_FILES = [
     '.gitignore',
     'LICENSE',
@@ -17,3 +12,4 @@ TEST_FILES = [
     'setup.py',
     '_config.yml',
     '.gitattributes']
+TEST_DATE = 1592470338.0135274

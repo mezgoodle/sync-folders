@@ -9,5 +9,8 @@ def test_reading():
 
 
 def test_dir():
-    assert set(main.list_dir(consts.TEST_DIR_PATH)) == set(consts.TEST_DIR_LIST)
-    assert set(main.files_in_dir(consts.TEST_DIR_PATH)) == set(consts.TEST_FILES)
+    assert set(
+        main.list_dir(
+            consts.TEST_DIR_PATH)) == set(
+        consts.TEST_DIR_LIST)
+    assert main.get_files(consts.TEST_DIR_PATH)[0]['date'] == consts.TEST_DATE
