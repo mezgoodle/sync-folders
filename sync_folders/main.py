@@ -53,9 +53,9 @@ def sync(path_a, path_b):
                 if file_b['date'] < file_a['date']:
                     # change
                     shutil.copy(path_a + '/' + file_a['name'], path_b)
-                    logs += f"Change {file_a['name']} in {path_b}\n"
+                    logs += f"Change {file_a['name']} in {path_b}" + '\n'
             else:
                 # move to b
                 shutil.copy(path_a + '/' + file_a['name'], path_b)
-                logs += f"Create {file_a['name']} in {path_b}\n"
+                logs += f"Create {file_a['name']} in {path_b}" + '\n'
     write_file('./logs.txt', logs)
