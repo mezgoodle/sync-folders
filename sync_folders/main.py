@@ -46,16 +46,22 @@ def sync(path_a, path_b):
     logs = ''
     files_in_a = get_files(path_a)
     files_in_b = get_files(path_b)
+    same_files = []
     for file_a in files_in_a:
         for file_b in files_in_b:
             if file_b['name'] == file_a['name']:
                 # compare dates
                 if file_b['date'] < file_a['date']:
                     # change
-                    shutil.copy(path_a + '/' + file_a['name'], path_b)
+                    shutil.copy2(path_a + '/' + file_a['name'], path_b)
                     logs += f"Change {file_a['name']} in {path_b}" + '\n'
-            else:
-                # move to b
-                shutil.copy(path_a + '/' + file_a['name'], path_b)
-                logs += f"Create {file_a['name']} in {path_b}" + '\n'
+            same_files.append(file_b['name'])
+    for file_a in files_in_a:
+        if not file_a['name'] in same_files:
+            # move to b
+            shutil.copy2(path_a + '/' + file_a['name'], path_b)
+            logs += f"Create {file_a['name']} in {path_b}" + '\n'
+
     write_file('./logs.txt', logs)
+
+sync('./tests/test_a', './tests/test_b')
