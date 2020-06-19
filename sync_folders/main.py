@@ -63,5 +63,3 @@ def sync(path_a, path_b):
             logs += f"Create {file_a['name']} in {path_b}" + '\n'
 
     write_file('./logs.txt', logs)
-
-sync('./tests/test_a', './tests/test_b')
