@@ -15,7 +15,11 @@ setup(
     author_email='mezgoodle@gmail.com',
     url='https://github.com/mezgoodle/sync-folders',
     download_url='https://github.com/mezgoodle/sync-folders/archive/v0.1.7.tar.gz',
-    keywords=['folders', 'files', 'synchronization', 'sync-folders'],
+    keywords=[
+        'folders',
+        'files',
+        'synchronization',
+        'sync-folders'],
     classifiers=[
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
