@@ -63,3 +63,15 @@ def sync(path_a, path_b):
             logs += f"Create {file_a['name']} in {path_b}" + '\n'
 
     write_file('./logs.txt', logs)
+
+
+def files(path):
+    files = get_files(path)
+    for file_ in files:
+        print(f"{file_['name']}\t Last Modified: {file_['date_str']}")
+
+
+def dirs(path):
+    dirs = list_dir(path)
+    for dir_ in dirs:
+        print(dir_)

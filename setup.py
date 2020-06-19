@@ -6,7 +6,7 @@ with open('README.md', 'r') as fh:
 setup(
     name='sync-folders',
     packages=['sync_folders'],
-    version='0.1.8',
+    version='0.1.9',
     license='MIT',
     description='Library for synchronization two folders',
     long_description=long_description,
@@ -14,7 +14,7 @@ setup(
     author='Maxim Zavalniuk',
     author_email='mezgoodle@gmail.com',
     url='https://github.com/mezgoodle/sync-folders',
-    download_url='https://github.com/mezgoodle/sync-folders/archive/v0.1.8.tar.gz',
+    download_url='https://github.com/mezgoodle/sync-folders/archive/v0.1.9.tar.gz',
     keywords=[
         'folders',
         'files',
