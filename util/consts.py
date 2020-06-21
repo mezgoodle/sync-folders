@@ -1,4 +1,6 @@
-TEST_PATH = './tests/text.txt'
+TEST_PATH = 'tests/text.txt'
+TEST_PURGE_PATH = 'text.txt'
+TEST_PURGE_PATH_1 = '1_text.txt'
 TEST_TEXT = 'text for the test'
 TEST_CHANGE_TEXT = 'some data to be written to the file'
 TEST_DIR_PATH = './'
@@ -18,3 +20,4 @@ TEST_FILES = [
     '_config.yml',
     '.gitattributes']
 TEST_NUM = 8
+DATA = 'a' * 10000
