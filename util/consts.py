@@ -1,5 +1,5 @@
-TEST_PATH = './tests/text.txt'
-TEST_PATH_1 = './tests/1_text.txt'
+TEST_PATH = 'tests/text.txt'
+TEST_PATH_1 = 'tests/1_text.txt'
 TEST_TEXT = 'text for the test'
 TEST_CHANGE_TEXT = 'some data to be written to the file'
 TEST_DIR_PATH = './'
