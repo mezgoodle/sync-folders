@@ -29,6 +29,14 @@ def delete_old_files(folder):
                 print(f"Deleting file: {fileName}")
                 os.remove(fileName)
 
+def delete_empty_dir(folder):
+    global TOTAL_DELETED_DIRS
+    for path, dirs, files in os.walk(folder):
+        if not dirs and not files:
+            TOTAL_DELETED_DIRS += 1
+            print(f"Deleting empty dir: {path}")
+            os.rmdir(path)
+
 starttime = time.asctime()
 
 for folder in FOLDERS:
