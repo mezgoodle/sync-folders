@@ -58,5 +58,3 @@ def cleaner(FOLDERS, DAYS):
     f = open('./logs.txt', 'w')
     f.write(logs)
     f.close()
-
-cleaner(['test_a', 'test_b'], 0)
