@@ -48,6 +48,7 @@ def test_purgelog():
 def test_cleaner():
     for dirname in consts.DIRS:
         os.mkdir(dirname)
+    assert consts.DIRS[0] in main.list_dir(consts.TEST_DIR_PATH)
     cleaner.cleaner([consts.DIRS[0], consts.DIRS[1],
                      consts.DIRS[2]], consts.DAYS)
     assert not consts.DIRS[len(consts.DIRS) -
