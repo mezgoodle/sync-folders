@@ -1,6 +1,6 @@
 import os
 import time
-import main
+from sync_folders import main
 
 
 def delete_old_files(folder, ageTime):
