@@ -1,21 +1,8 @@
 import os
 import time
 
-DAYS = 5
-FOLDERS = [
-    './test_a',
-    './test_b',
-    './test_c'
-]
 
-TOTAL_DELETED_SIZE = 0 # Total deleted size of all files
-TOTAL_DELETED_FILE = 0 # Total deleted files
-TOTAL_DELETED_DIRS = 0 # Total deleted empty folders
-
-nowTime = time.time()             # Get current time in seconds
-ageTime = nowTime - 60*60*24*DAYS # Minus DAYS in seconds
-
-def delete_old_files(folder):
+def delete_old_files(folder, ageTime):
     global TOTAL_DELETED_FILE
     global TOTAL_DELETED_SIZE
     for path, dirs, files in os.walk(folder):
@@ -41,17 +28,22 @@ def delete_empty_dir(folder):
     if empty_folders_in_this_run > 0:
         delete_empty_dir(folder)
 
-starttime = time.asctime()
-
-for folder in FOLDERS:
-    delete_old_files(folder) # Delete old files
-    delete_empty_dir(folder) # Delete empty folders
-
-finishtime = time.asctime()
+TOTAL_DELETED_SIZE = 0 # Total deleted size of all files
+TOTAL_DELETED_FILE = 0 # Total deleted files
+TOTAL_DELETED_DIRS = 0 # Total deleted empty folders
 
 
-print(f"START TIME: {starttime}")
-print(f"Total deleted size: {TOTAL_DELETED_SIZE/1024/1024} MB")
-print(f"Total deleted files: {TOTAL_DELETED_FILE}")
-print(f"Total deleted empty folders: {TOTAL_DELETED_DIRS}")
-print(f"FINISH TIME: {finishtime}")
+def cleaner(FOLDERS, DAYS):
+    nowTime = time.time()             # Get current time in seconds
+    ageTime = nowTime - 60*60*24*DAYS # Minus DAYS in seconds
+    starttime = time.asctime()
+    for folder in FOLDERS:
+        delete_old_files(folder, ageTime) # Delete old files
+        delete_empty_dir(folder)          # Delete empty folders
+    finishtime = time.asctime()
+
+    print(f"START TIME: {starttime}")
+    print(f"Total deleted size: {TOTAL_DELETED_SIZE/1024/1024} MB")
+    print(f"Total deleted files: {TOTAL_DELETED_FILE}")
+    print(f"Total deleted empty folders: {TOTAL_DELETED_DIRS}")
+    print(f"FINISH TIME: {finishtime}")
