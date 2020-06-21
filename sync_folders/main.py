@@ -1,6 +1,7 @@
 from datetime import datetime
 import os
 import shutil
+import purgelog
 
 
 def convert_date(timestamp):
@@ -75,3 +76,6 @@ def dirs(path):
     dirs = list_dir(path)
     for dir_ in dirs:
         print(dir_)
+
+# write_file('./test.txt', 'a' * 10000)
+# purgelog.purgelog('test.txt', 5, 2)

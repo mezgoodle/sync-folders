@@ -1,4 +1,4 @@
-from sync_folders import main
+from sync_folders import main, purgelog
 from util import consts
 import os
 
@@ -41,5 +41,5 @@ def test_sync():
 def test_purgelog():
     main.write_file(consts.TEST_PATH, consts.DATA)
     assert consts.DATA == main.read_file(consts.TEST_PATH)
-    os.system("python ./sync_folders/purgelog.py ./tests/text.txt 5 2")
+    purgelog.purgelog(consts.TEST_PATH, 5, 2)
     assert consts.DATA == main.read_file(consts.TEST_PATH_1)
