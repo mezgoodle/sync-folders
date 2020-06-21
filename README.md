@@ -10,3 +10,5 @@ This is file for synchronization two folders by checking date of changing files 
 ```bash
 python main.py
 ```
+
+https://www.youtube.com/watch?v=sb3118xptEM&list=PLg5SS_4L6LYt7Wmh8zBKjZ_ltaoDXSEmk&index=4
