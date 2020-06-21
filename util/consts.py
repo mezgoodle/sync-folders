@@ -21,3 +21,11 @@ TEST_FILES = [
     '.gitattributes']
 TEST_NUM = 8
 DATA = 'a' * 10000
+DIRS = [
+    'test_a',
+    'test_b',
+    'test_c',
+    'test_a/asdasd',
+    'test_b/adaasd',
+    'test_a/asdasd/adaasd']
+DAYS = 0
