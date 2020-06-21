@@ -4,7 +4,7 @@ import shutil
 import os
 import sys
 
-# purgelog.py mylog.txt 10 5
+# purgelog.py <log-file name> <limit in KB> <logs-files>
 
 if len(sys.argv) < 4:
     raise NameError('Missing arguments')
