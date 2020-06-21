@@ -1,6 +1,5 @@
 from sync_folders import main, purgelog
 from util import consts
-import os
 
 
 def test_reading():

@@ -2,9 +2,9 @@
 
 import shutil
 import os
-import sys
 
 # <log-file name> <limit in KB> <logs-files>
+
 
 def purgelog(*args):
     if len(args) < 3:
