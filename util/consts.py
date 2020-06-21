@@ -18,3 +18,4 @@ TEST_FILES = [
     '_config.yml',
     '.gitattributes']
 TEST_NUM = 8
+DATA = 'a' * 10000
