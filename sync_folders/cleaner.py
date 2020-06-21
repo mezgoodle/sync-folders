@@ -15,7 +15,7 @@ def delete_old_files(folder, ageTime):
                 sizeFile = os.path.getsize(fileName)
                 TOTAL_DELETED_SIZE += sizeFile
                 TOTAL_DELETED_FILE += 1
-                logs += f"Deleting file: {fileName}"
+                logs += f"Deleting file: {fileName}" + '\n'
                 os.remove(fileName)
     return logs
 
@@ -28,7 +28,7 @@ def delete_empty_dir(folder, logs):
         if not dirs and not files:
             TOTAL_DELETED_DIRS += 1
             empty_folders_in_this_run += 1
-            logs_in += f"Deleting empty dir: {path}"
+            logs_in += f"Deleting empty dir: {path}" + '\n'
             os.rmdir(path)
     if empty_folders_in_this_run > 0:
         delete_empty_dir(folder, logs_in)
@@ -55,3 +55,7 @@ def cleaner(FOLDERS, DAYS):
     print(f"Total deleted files: {TOTAL_DELETED_FILE}")
     print(f"Total deleted empty folders: {TOTAL_DELETED_DIRS}")
     print(f"FINISH TIME: {finishtime}")
+
+    main.write_file('./logs.txt', logs)
+
+cleaner(['test_a', 'test_b'], 0)
