@@ -19,7 +19,7 @@ TEST_FILES = [
     'setup.py',
     '_config.yml',
     '.gitattributes']
-TEST_NUM = 9
+TEST_NUM = 8
 DATA = 'a' * 10000
 DIRS = [
     'test_a',
