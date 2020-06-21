@@ -12,6 +12,23 @@ TOTAL_DELETED_SIZE = 0 # Total deleted size of all files
 TOTAL_DELETED_FILE = 0 # Total deleted files
 TOTAL_DELETED_DIRS = 0 # Total deleted empty folders
 
+nowTime = time.time()             # Get current time in seconds
+ageTime = nowTime - 60*60*24*DAYS # Minus DAYS in seconds
+
+def delete_old_files(folder):
+    global TOTAL_DELETED_FILE
+    global TOTAL_DELETED_SIZE
+    for path, dirs, files in os.walk(folder):
+        for file in files:
+            fileName = os.path.join(path, file) # get Full path to file
+            fileTime = os.path.getmtime(fileName)
+            if fileTime < ageTime:
+                sizeFile = os.path.getsize(fileName)
+                TOTAL_DELETED_SIZE += sizeFile
+                TOTAL_DELETED_FILE += 1
+                print(f"Deleting file: {fileName}")
+                os.remove(fileName)
+
 starttime = time.asctime()
 
 for folder in FOLDERS:
