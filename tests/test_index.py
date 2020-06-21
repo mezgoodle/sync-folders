@@ -42,4 +42,4 @@ def test_purgelog():
     main.write_file(consts.TEST_PATH, consts.DATA)
     assert consts.DATA == main.read_file(consts.TEST_PATH)
     os.system("python ./sync_folders/purgelog.py ./tests/text.txt 5 2")
-    assert consts.DATA == main.read_file('1_' + consts.TEST_PATH)
+    assert consts.DATA == main.read_file(consts.TEST_PATH_1)
