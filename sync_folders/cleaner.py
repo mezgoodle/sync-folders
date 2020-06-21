@@ -55,6 +55,8 @@ def cleaner(FOLDERS, DAYS):
     print(f"Total deleted empty folders: {TOTAL_DELETED_DIRS}")
     print(f"FINISH TIME: {finishtime}")
 
-    main.write_file('./logs.txt', logs)
+    f = open('./logs.txt', 'w')
+    f.write(logs)
+    f.close()
 
 cleaner(['test_a', 'test_b'], 0)
