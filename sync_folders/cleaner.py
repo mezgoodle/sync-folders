@@ -1,7 +1,9 @@
+# Imports
 import os
 import time
 
 
+# Function for deleting old files
 def delete_old_files(folder, ageTime):
     logs = ''
     global TOTAL_DELETED_FILE
@@ -19,6 +21,7 @@ def delete_old_files(folder, ageTime):
     return logs
 
 
+# Function for deleting empty folders
 def delete_empty_dir(folder, logs):
     logs_in = logs
     global TOTAL_DELETED_DIRS
@@ -34,11 +37,13 @@ def delete_empty_dir(folder, logs):
     return logs_in
 
 
+# Some constants
 TOTAL_DELETED_SIZE = 0  # Total deleted size of all files
 TOTAL_DELETED_FILE = 0  # Total deleted files
 TOTAL_DELETED_DIRS = 0  # Total deleted empty folders
 
 
+# Main function
 def cleaner(FOLDERS, DAYS):
     logs = ''
     nowTime = time.time()                    # Get current time in seconds
