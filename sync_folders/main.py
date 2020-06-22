@@ -1,25 +1,30 @@
+# imports
 from datetime import datetime
 import os
 import shutil
 
 
+# Function for converting time from timestamp
 def convert_date(timestamp):
     d = datetime.utcfromtimestamp(timestamp)
     formated_date = d.strftime('%d %b %Y, %H %M')
     return formated_date
 
 
+# Function for reading the single file
 def read_file(path):
     with open(path, 'r') as f:
         data = f.read()
     return data
 
 
+# Function for writing data in the single file
 def write_file(path, data):
     with open(path, 'w') as f:
         f.write(data)
 
 
+# Function that returns list of dirs
 def list_dir(path):
     dirs = []
     for entry in os.listdir(path):
@@ -28,6 +33,7 @@ def list_dir(path):
     return dirs
 
 
+# Function that returns list of files
 def get_files(path):
     files = []
     dir_entries = os.scandir(path)
@@ -42,6 +48,7 @@ def get_files(path):
     return files
 
 
+# Main function for synchronize two folders
 def sync(path_a, path_b):
     logs = ''
     files_in_a = get_files(path_a)
@@ -65,12 +72,14 @@ def sync(path_a, path_b):
     write_file('./logs.txt', logs)
 
 
+# Function that prints list of files and their last modified date
 def files(path):
     files = get_files(path)
     for file_ in files:
         print(f"{file_['name']}\t Last Modified: {file_['date_str']}")
 
 
+# Function that prints list of dirs
 def dirs(path):
     dirs = list_dir(path)
     for dir_ in dirs:
