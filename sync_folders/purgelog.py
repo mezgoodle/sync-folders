@@ -13,7 +13,6 @@ List of arguments in the function
 def purgelog(*args):
     if len(args) < 3:
         raise NameError('Missing arguments')
-        exit(1)
 
     file_name = args[0]
     limitize = int(args[1])
