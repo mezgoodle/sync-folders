@@ -73,7 +73,7 @@ main.sync('./path/to/first/dir', './path/to/second/dir')
  - Files output
 ```python
 main.files('./path/to/dir')
-"""Expected output(example)
+""" Expected output(example)
 
 .gitattributes   Last Modified: 18 Jun 2020, 08 52
 .gitignore       Last Modified: 10 Jun 2020, 06 39
@@ -90,7 +90,7 @@ _config.yml      Last Modified: 10 Jun 2020, 09 28
  - Dirs output
 ```python
 main.dirs('./path/to/dir')
-"""Expected output(example)
+""" Expected output(example)
 
 .venv
 test_a
@@ -101,11 +101,12 @@ test_b
  - Reading the file data
 ```python
 print(main.read_file('./path/to/file'))
-"""Expected output(example)
+""" Expected output(example)
 
 from sync_folders import main, purgelog, cleaner
 
 print(main.read_file('./index.py'))
+"""
 ```
 
  - Write in the file
@@ -119,20 +120,22 @@ main.write_file('./path/to/file', 'your text')
  - List of the dirs
 ```python
 print(main.list_dir('./path/to/dir'))
-"""Expected output(example)
+""" Expected output(example)
 
 ['.git', '.github', '.venv', 'sync_folders', 'tests', 'util']
+"""
 ```
 
  - List of the files
 ```python
 print(main.list_dir('./path/to/dir'))
-"""Expected output(example)
+""" Expected output(example)
 
 [
   {'name': 'python-package.yml', 'date': 1592564708.6109703, 'date_str': '19 Jun 2020, 11 05'}, 
   {'name': 'python-publish.yml', 'date': 1591772746.2324488, 'date_str': '10 Jun 2020, 07 05'}
 ]
+"""
 ```
 
  - Cleaner
@@ -152,7 +155,7 @@ FINISH TIME: Tue Jun 23 22:01:00 2020
  - Purgelof
 ```python
 purgelog.purgelog('log-file name', '<limit in KB>', '<number of logs-files>')
-"""Expected output(example)
+""" Expected output(example)
 Copied: logs.txt to 1_logs.txt
 """
 # Expected creation of `1_logs.txt`
