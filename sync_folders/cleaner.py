@@ -8,7 +8,7 @@ def delete_old_files(folder, ageTime):
     logs = ''
     global TOTAL_DELETED_FILE
     global TOTAL_DELETED_SIZE
-    for path, files in os.walk(folder):
+    for path, dirs, files in os.walk(folder):
         for file in files:
             fileName = os.path.join(path, file)  # get Full path to file
             fileTime = os.path.getmtime(fileName)
