@@ -45,9 +45,11 @@ TOTAL_DELETED_DIRS = 0  # Total deleted empty folders
 
 # Main function
 def cleaner(FOLDERS, DAYS):
+    if not isinstance(FOLDERS, list):
+        raise TypeError('Folders must be as list')
     logs = ''
-    nowTime = time.time()                    # Get current time in seconds
-    ageTime = nowTime - 60 * 60 * 24 * DAYS  # Minus DAYS in seconds
+    nowTime = time.time()                         # Get current time in seconds
+    ageTime = nowTime - 60 * 60 * 24 * int(DAYS)  # Minus DAYS in seconds
     starttime = time.asctime()
     for folder in FOLDERS:
         logs += delete_old_files(folder, ageTime)      # Delete old files
