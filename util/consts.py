@@ -28,4 +28,4 @@ DIRS = [
     'test_a/asdasd',
     'test_b/adaasd',
     'test_a/asdasd/adaasd']
-DAYS = 0
+DAYS = 1
