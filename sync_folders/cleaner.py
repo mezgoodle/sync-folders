@@ -44,7 +44,7 @@ TOTAL_DELETED_DIRS = 0  # Total deleted empty folders
 
 
 # Main function
-def cleaner(FOLDERS = None, DAYS = None):
+def cleaner(FOLDERS=None, DAYS=None):
     if not isinstance(FOLDERS, list):
         raise TypeError('Folders must be as list')
     if not DAYS:

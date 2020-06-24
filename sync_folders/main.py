@@ -12,7 +12,7 @@ def convert_date(timestamp):
 
 
 # Function for reading the single file
-def read_file(path = None):
+def read_file(path=None):
     if not path:
         raise NameError('Required path to the file')
     with open(path, 'r') as f:
@@ -21,7 +21,7 @@ def read_file(path = None):
 
 
 # Function for writing data in the single file
-def write_file(path = None, data = None):
+def write_file(path=None, data=None):
     if not path or not data:
         raise NameError('Required path to the file and data')
     with open(path, 'w') as f:
@@ -29,7 +29,7 @@ def write_file(path = None, data = None):
 
 
 # Function that returns list of dirs
-def list_dir(path = None):
+def list_dir(path=None):
     if not path:
         raise NameError('Required path to dir')
     dirs = []
@@ -57,7 +57,7 @@ def get_files(path):
 
 
 # Main function for synchronize two folders
-def sync(path_a = None, path_b = None):
+def sync(path_a=None, path_b=None):
     if not path_a or not path_b:
         raise NameError('Required path to both dirs')
     logs = ''
@@ -83,7 +83,7 @@ def sync(path_a = None, path_b = None):
 
 
 # Function that prints list of files and their last modified date
-def files(path = None):
+def files(path=None):
     files = get_files(path)
     for file_ in files:
         print(f"{file_['name']}\t Last Modified: {file_['date_str']}")
