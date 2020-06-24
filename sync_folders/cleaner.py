@@ -44,9 +44,11 @@ TOTAL_DELETED_DIRS = 0  # Total deleted empty folders
 
 
 # Main function
-def cleaner(FOLDERS, DAYS):
+def cleaner(FOLDERS = None, DAYS = None):
     if not isinstance(FOLDERS, list):
         raise TypeError('Folders must be as list')
+    if not DAYS:
+        raise NameError('Enter the limit of the days')
     logs = ''
     nowTime = time.time()                         # Get current time in seconds
     ageTime = nowTime - 60 * 60 * 24 * int(DAYS)  # Minus DAYS in seconds
