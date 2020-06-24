@@ -255,9 +255,33 @@ number | `int` | `<required>` | `None`  | the number of the maximum available nu
 
 ## Code Example
 
-Here you can see small example of ...
+Here you can see the function, that syncs two folders
 
 ```python
+# Main function for synchronize two folders
+def sync(path_a=None, path_b=None):
+    if not path_a or not path_b:
+        raise NameError('Required path to both dirs')
+    logs = ''
+    files_in_a = get_files(path_a)
+    files_in_b = get_files(path_b)
+    same_files = []
+    for file_a in files_in_a:
+        for file_b in files_in_b:
+            if file_b['name'] == file_a['name']:
+                # compare dates
+                if file_b['date'] < file_a['date']:
+                    # change
+                    shutil.copy2(path_a + '/' + file_a['name'], path_b)
+                    logs += f"Change {file_a['name']} in {path_b}" + '\n'
+            same_files.append(file_b['name'])
+    for file_a in files_in_a:
+        if not file_a['name'] in same_files:
+            # move to b
+            shutil.copy2(path_a + '/' + file_a['name'], path_b)
+            logs += f"Create {file_a['name']} in {path_b}" + '\n'
+
+    write_file('./logs.txt', logs)
 ```
 
 ## Tests
