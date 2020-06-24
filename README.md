@@ -3,19 +3,40 @@
 Hello everyone! This is the repository of my package on Python "sync-folders".
 
 ## Table of contents
-  * [Motivation](#motivation)
-  * [Build status](#build-status)
-  * [Code style](#code-style)
-  * [Dependencies](#dependencies)
-  * [Features](#features)
-  * [Installation](#installation)
-  * [Importing](#importing)
-  * [Fast usage](#fast-usage)
-  * [API](#api)
-  * [Code Example](#code-example)
-  * [Tests](#tests)
-  * [Contributing](#contributing)
-  * [License](#license)
+
+* [Table of contents](#table-of-contents)
+* [Motivation](#motivation)
+* [Build status](#build-status)
+* [Code style](#code-style)
+* [Dependencies](#dependencies)
+* [Features](#features)
+* [Installation](#installation)
+* [Importing](#importing)
+* [Fast usage](#fast-usage)
+  + [Synchronization](#synchronization)
+  + [Files output](#files-output)
+  + [Dirs output](#dirs-output)
+  + [Reading the file data](#reading-the-file-data)
+  + [Write in the file](#write-in-the-file)
+  + [List of the dirs](#list-of-the-dirs)
+  + [List of the files](#list-of-the-files)
+  + [Cleaner](#cleaner)
+  + [Purgelog](#purgelog)
+* [API](#api)
+  + [main.sync( first_path, second_path )](#mainsync--first-path--second-path--)
+  + [main.files( path )](#mainfiles--path--)
+  + [main.dirs( path )](#maindirs--path--)
+  + [main.read_file( path )](#mainread-file--path--)
+  + [main.write_file( path, text )](#mainwrite-file--path--text--)
+  + [main.list_dir( path )](#mainlist-dir--path--)
+  + [main.get_files( path )](#mainget-files--path--)
+  + [cleaner.cleaner( folders, limit )](#cleanercleaner--folders--limit--)
+  + [purgelog.purgelog( log-file, limit, number )](#purgelogpurgelog--log-file--limit--number--)
+* [Code Example](#code-example)
+* [Tests](#tests)
+* [Contributing](#contributing)
+* [Credits](#credits)
+* [License](#license)
 
 ## Motivation
 
@@ -41,7 +62,7 @@ I'm using [Codacy](https://www.codacy.com/) for automate my code quality.
 
 ## Features
 
-With my package you can **sync** two folders, **manage** logs files, **delete** empty folders of old files.
+With my package you can **sync** two folders, **manage** logs files, **delete** empty folders and old files.
 
 ## Installation
 
@@ -64,16 +85,20 @@ from sync_folders import main, purgelog, cleaner
 
 ## Fast usage
 
- - Synchronization
+Example of usage this module
+
+### Synchronization
+
 ```python
-main.sync('./path/to/first/dir', './path/to/second/dir')
+main.sync('./test_a', './test_b')
 # Expected creation of `logs.txt`
 ```
 
- - Files output
+### Files output
+
 ```python
-main.files('./path/to/dir')
-""" Expected output(example)
+main.files('./')
+""" Expected output
 
 .gitattributes   Last Modified: 18 Jun 2020, 08 52
 .gitignore       Last Modified: 10 Jun 2020, 06 39
@@ -87,10 +112,11 @@ _config.yml      Last Modified: 10 Jun 2020, 09 28
 """
 ```
 
- - Dirs output
+### Dirs output
+
 ```python
-main.dirs('./path/to/dir')
-""" Expected output(example)
+main.dirs('./tests')
+""" Expected output
 
 .venv
 test_a
@@ -98,10 +124,11 @@ test_b
 """
 ```
 
- - Reading the file data
+### Reading the file data
+
 ```python
-print(main.read_file('./path/to/file'))
-""" Expected output(example)
+print(main.read_file('./index.py'))
+""" Expected output
 
 from sync_folders import main, purgelog, cleaner
 
@@ -109,27 +136,29 @@ print(main.read_file('./index.py'))
 """
 ```
 
- - Write in the file
+### Write in the file
 
- > No append
+ > Not an appending
 
 ```python
-main.write_file('./path/to/file', 'your text')
+main.write_file('./test.txt', 'your text')
 ```
 
- - List of the dirs
+### List of the dirs
+
 ```python
-print(main.list_dir('./path/to/dir'))
-""" Expected output(example)
+main.list_dir('./')
+""" Expected result
 
 ['.git', '.github', '.venv', 'sync_folders', 'tests', 'util']
 """
 ```
 
- - List of the files
+### List of the files
+
 ```python
-print(main.list_dir('./path/to/dir'))
-""" Expected output(example)
+main.get_files('./')
+""" Expected result
 
 [
   {'name': 'python-package.yml', 'date': 1592564708.6109703, 'date_str': '19 Jun 2020, 11 05'}, 
@@ -138,24 +167,26 @@ print(main.list_dir('./path/to/dir'))
 """
 ```
 
- - Cleaner
+### Cleaner
+
 ```python
-cleaner.cleaner(['array', 'of', 'pathes', 'folders'], 'limit_of_day_for_files')
+cleaner.cleaner(['./test_a', './test_a/test_c', './test_b'], 5)
 # Expected creation of `logs.txt`
-""" Expected output(example)
+""" Expected output
 
 START TIME: Tue Jun 23 22:01:00 2020
 Total deleted size: 0.0 MB
 Total deleted files: 0
-Total deleted empty folders: 2
+Total deleted empty folders: 3
 FINISH TIME: Tue Jun 23 22:01:00 2020
 """
 ```
 
- - Purgelof
+### Purgelog
+
 ```python
-purgelog.purgelog('log-file name', '<limit in KB>', '<number of logs-files>')
-""" Expected output(example)
+purgelog.purgelog('./logs.txt', 5, 2)
+""" Expected output
 Copied: logs.txt to 1_logs.txt
 """
 # Expected creation of `1_logs.txt`
@@ -163,38 +194,64 @@ Copied: logs.txt to 1_logs.txt
 
 ## API
 
-### caesarEncrypt( value, amount, type )
+### main.sync( first_path, second_path )
 
 Name    | Type     | Argument     | Default | Description
 --------|----------|--------------|---------|------------
-value     | `string` | `<required>` | `null`  | the message to encrypt
-amount | `number` | `<required>` | `null`  | the key to encrypt the message with
-type | `string` | `<required>` | `null`  | the type of language: latin or cyrillic
+first_path    | `string` | `<required>` | `None`  | the path to the directory
+second_path | `string` | `<required>` | `None`  | the path to the directory
 
-### caesarDecrypt( value, amount, type )
-
-Name    | Type     | Argument     | Default | Description
---------|----------|--------------|---------|------------
-value     | `string` | `<required>` | `null`  | the message to decrypt
-amount | `number` | `<required>` | `null`  | the key to decrypt the message with
-type | `string` | `<required>` | `null`  | the type of language: latin or cyrillic
-
-### vigenereEncrypt( text, key, type )
+### main.files( path )
 
 Name    | Type     | Argument     | Default | Description
 --------|----------|--------------|---------|------------
-text     | `string` | `<required>` | `null`  | the message to encrypt
-key | `string` | `<required>` | `null`  | the key to encrypt the message with
-type | `string` | `<required>` | `null`  | the type of language: latin or cyrillic
+path    | `string` | `<required>` | `None`  | the path to the directory
 
-### vigenereDecrypt( text, key, type )
+### main.dirs( path )
 
 Name    | Type     | Argument     | Default | Description
 --------|----------|--------------|---------|------------
-text     | `string` | `<required>` | `null`  | the message to decrypt
-key | `string` | `<required>` | `null`  | the key to decrypt the message with
-type | `string` | `<required>` | `null`  | the type of language: latin or cyrillic
+path     | `string` | `<required>` | `None`  | the path to the directory
 
+### main.read_file( path )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+path   | `string` | `<required>` | `None`  | the path to the file
+
+### main.write_file( path, text )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+path   | `string` | `<required>` | `None`  | the path to the file
+text | `string` | `<required>` | `None`  | the content
+
+### main.list_dir( path )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+path     | `string` | `<required>` | `None`  | the path to the directory
+
+### main.get_files( path )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+path    | `string` | `<required>` | `None`  | the path to the directory
+
+### cleaner.cleaner( folders, limit )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+folders     | `list` | `<required>` | `None`  | the array of the folders
+limit | `int` | `<required>` | `None`  | the limit of the days for comparing
+
+### purgelog.purgelog( log-file, limit, number )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+log-file     | `string` | `<required>` | `None`  | the path to the log-file
+limit | `int` | `<required>` | `None`  | the limit of the maximum memory
+number | `int` | `<required>` | `None`  | the number of the maximum available number of the logs file
 
 ## Code Example
 
