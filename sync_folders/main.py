@@ -13,20 +13,26 @@ def convert_date(timestamp):
 
 
 # Function that creates archive
-def create_zip(files, path):
+def create_zip(files=None, path=None):
+    if not files or not path:
+        raise NameError('Required list of files and path')
     with zipfile.ZipFile(path, 'a') as new_zip:
         for name in files:
             new_zip.write(name)
 
 
 # Function that returns list of files from archive
-def files_in_zip(path):
+def files_in_zip(path=None):
+    if not path:
+        raise NameError('Required path to archive')
     with zipfile.ZipFile(path, 'r') as zipobj:
         return zipobj.namelist()
 
 
 # Function that prints information about archive
-def read_zip(path):
+def read_zip(path=None):
+    if not path:
+        raise NameError('Required path to archive')
     with zipfile.ZipFile(path, 'r') as zipobj:
         files = zipobj.namelist()
         for file_ in files:
@@ -37,7 +43,9 @@ def read_zip(path):
 
 
 # Function that extracts files from archive
-def extract(path_to_zip, path_to_file):
+def extract(path_to_zip=None, path_to_file=None):
+    if not path_to_file or not path_to_zip:
+        raise NameError('Required path to both arguments')
     data_zip = zipfile.ZipFile(path_to_zip, 'r')
     if path_to_file:
         data_zip.extract(path_to_file)
