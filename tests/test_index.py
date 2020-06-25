@@ -56,3 +56,11 @@ def test_cleaner():
     for i in range(0, 3):
         assert not consts.DIRS[i] in main.list_dir(consts.TEST_DIR_PATH)
     assert main.read_file(consts.TEST_FILE_PATH_2) != ''
+
+
+def test_zip():
+    main.create_zip(consts.TEST_FILES_ZIP, consts.ZIP_PATH)
+    assert consts.ZIP_PATH[:3] in main.list_dir(consts.TEST_DIR_PATH)
+    assert consts.TEST_FILES_ZIP == main.files_in_zip(consts.ZIP_PATH)
+    main.extract(consts.ZIP_PATH, consts.TEST_FILES_ZIP[0])
+    assert main.read_file(consts.TEST_FILES_ZIP[0]) != ''
