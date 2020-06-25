@@ -2,6 +2,7 @@
 from datetime import datetime
 import os
 import shutil
+import zipfile
 
 
 # Function for converting time from timestamp
@@ -9,6 +10,40 @@ def convert_date(timestamp):
     d = datetime.utcfromtimestamp(timestamp)
     formated_date = d.strftime('%d %b %Y, %H %M')
     return formated_date
+
+
+# Function that creates archive
+def create_zip(files, path):
+    with zipfile.ZipFile(path, 'a') as new_zip:
+        for name in files:
+            new_zip.write(name)
+
+
+# Function that returns list of files from archive
+def files_in_zip(path):
+    with zipfile.ZipFile(path, 'r') as zipobj:
+        return zipobj.namelist()
+
+
+# Function that prints information about archive
+def read_zip(path):
+    with zipfile.ZipFile(path, 'r') as zipobj:
+        files = zipobj.namelist()
+        for file_ in files:
+            bar_info = zipobj.getinfo(file_)
+            print(f"""{bar_info.filename}\t
+            Compress size: {int(bar_info.compress_size) / 1024} in KB\t
+            Filesize: {int(bar_info.file_size) / 1024} in KB""")
+
+
+# Function that extracts files from archive
+def extract(path_to_zip, path_to_file):
+    data_zip = zipfile.ZipFile(path_to_zip, 'r')
+    if path_to_file:
+        data_zip.extract(path_to_file)
+    else:
+        data_zip.extractall(path='extract_dir/')
+    data_zip.close()
 
 
 # Function for reading the single file

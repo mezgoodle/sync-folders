@@ -29,3 +29,9 @@ DIRS = [
     'test_b/adaasd',
     'test_a/asdasd/adaasd']
 DAYS = 1
+TEST_FILES_ZIP = [
+    'LICENSE',
+    'README.md',
+    'tests/test_a/a.txt'
+]
+ZIP_PATH = 'new.zip'
