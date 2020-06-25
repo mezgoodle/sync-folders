@@ -60,7 +60,7 @@ def test_cleaner():
 
 def test_zip():
     main.create_zip(consts.TEST_FILES_ZIP, consts.ZIP_PATH)
-    assert consts.ZIP_PATH[:3] in main.list_dir(consts.TEST_DIR_PATH)
+    assert os.path.isfile(consts.ZIP_PATH)
     assert consts.TEST_FILES_ZIP == main.files_in_zip(consts.ZIP_PATH)
     main.extract(consts.ZIP_PATH, consts.TEST_FILES_ZIP[0])
     assert main.read_file(consts.TEST_FILES_ZIP[0]) != ''

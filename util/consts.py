@@ -34,4 +34,4 @@ TEST_FILES_ZIP = [
     'README.md',
     'tests/test_a/a.txt'
 ]
-ZIP_PATH = 'zip/new.zip'
+ZIP_PATH = 'new.zip'
