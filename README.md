@@ -20,16 +20,24 @@ Hello everyone! This is the repository of my package on Python "sync-folders".
   + [Write in the file](#write-in-the-file)
   + [List of the dirs](#list-of-the-dirs)
   + [List of the files](#list-of-the-files)
+  + [Read zip-archive](#read-zip-archive)
+  + [List of the elements in archive](#list-of-the-elements-in-archive)
+  + [Extract element from archive](#extract-element-from-archive)
+  + [Create archive](#create-archive)
   + [Cleaner](#cleaner)
   + [Purgelog](#purgelog)
 * [API](#api)
-  + [main.sync( first_path, second_path )](#mainsync--first-path--second-path--)
+  + [main.sync( path_a, path_b )](#mainsync--path-a--path-b--)
   + [main.files( path )](#mainfiles--path--)
   + [main.dirs( path )](#maindirs--path--)
   + [main.read_file( path )](#mainread-file--path--)
-  + [main.write_file( path, text )](#mainwrite-file--path--text--)
+  + [main.write_file( path, data )](#mainwrite-file--path--data--)
   + [main.list_dir( path )](#mainlist-dir--path--)
   + [main.get_files( path )](#mainget-files--path--)
+  + [main.read_zip( path )](#mainread-zip--path--)
+  + [main.files_in_zip( path )](#mainfiles-in-zip--path--)
+  + [main.extract( path_to_zip, path_to_file )](#mainextract--path-to-zip--path-to-file--)
+  + [main.create_zip( files, path)](#maincreate-zip--files--path-)
   + [cleaner.cleaner( folders, limit )](#cleanercleaner--folders--limit--)
   + [purgelog.purgelog( log-file, limit, number )](#purgelogpurgelog--log-file--limit--number--)
 * [Code Example](#code-example)
@@ -47,6 +55,7 @@ Someday I made the script, that synchronizes two folders by date of theirs files
 Here you can see build status of [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration)/[continuous deployment](https://en.wikipedia.org/wiki/Continuous_deployment):
 
 ![Python package](https://github.com/mezgoodle/sync-folders/workflows/Python%20package/badge.svg)
+![Lint Code Base](https://github.com/mezgoodle/sync-folders/workflows/Lint%20Code%20Base/badge.svg)
 ![Upload Python Package](https://github.com/mezgoodle/sync-folders/workflows/Upload%20Python%20Package/badge.svg)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/sync-folders)
 
@@ -62,7 +71,7 @@ I'm using [Codacy](https://www.codacy.com/) for automate my code quality.
 
 ## Features
 
-With my package you can **sync** two folders, **manage** logs files, **delete** empty folders and old files.
+With my package you can **sync** two folders, **manage** logs files, **delete** empty folders and old files, read and create **zip-archives**.
 
 ## Installation
 
@@ -167,6 +176,48 @@ main.get_files('./')
 """
 ```
 
+### Read zip-archive
+
+```python
+main.read_zip('./test.zip')
+""" Expected output
+
+test_a/
+            Compress size: 0.0 in KB
+            Filesize: 0.0 in KB
+test_a/test.docx
+            Compress size: 8.490234375 in KB
+            Filesize: 11.1572265625 in KB
+test_b/
+            Compress size: 0.0 in KB
+            Filesize: 0.0 in KB
+"""
+```
+
+### List of the elements in archive
+
+```python
+main.files_in_zip('test.zip')
+""" Expected result
+
+['test_a/', 'test_a/test.docx', 'test_b/']
+"""
+```
+
+### Extract element from archive
+
+```python
+main.extract('test.zip', 'test_a/test.docx')
+# Expected creation of `test_a/test.docx`
+```
+
+### Create archive
+
+```python
+main.create_zip(['_config.yml', 'LICENSE', 'setup.py'], './test.zip')
+# Expected creation of `test.zip`
+```
+
 ### Cleaner
 
 ```python
@@ -237,6 +288,32 @@ path     | `string` | `<required>` | `None`  | the path to the directory
 Name    | Type     | Argument     | Default | Description
 --------|----------|--------------|---------|------------
 path    | `string` | `<required>` | `None`  | the path to the directory
+
+### main.read_zip( path )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+path    | `string` | `<required>` | `None`  | the path to the archive
+
+### main.files_in_zip( path )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+path    | `string` | `<required>` | `None`  | the path to the archive
+
+### main.extract( path_to_zip, path_to_file )
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+path_to_zip    | `string` | `<required>` | `None`  | the path to the archive
+path_to_file    | `string` | `<not required>` | `None`  | the path to the need file for extracting
+
+### main.create_zip( files, path)
+
+Name    | Type     | Argument     | Default | Description
+--------|----------|--------------|---------|------------
+files    | `list` | `<required>` | `None`  | the list of pathes to the files for archiving
+path    | `string` | `<required>` | `None`  | the path to the new archive
 
 ### cleaner.cleaner( folders, limit )
 
