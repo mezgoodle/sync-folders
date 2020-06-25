@@ -1,4 +1,4 @@
-# Synchronization folders script
+# Synchronization folders package
 
 Hello everyone! This is the repository of my package on Python "sync-folders".
 
