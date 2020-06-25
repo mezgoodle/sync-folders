@@ -40,7 +40,7 @@ Hello everyone! This is the repository of my package on Python "sync-folders".
 
 ## Motivation
 
-Someday I made the script, that synchronizes two folders by date of theirs files. After time I've wanted to create package on [PyPi](https://pypi.org/). Also I've also added some new features for working with files, in addition to **syncing**.
+Someday I made the script, that synchronizes two folders by date of theirs files. After time I've wanted to create package on [PyPi](https://pypi.org/). Also I've added some new features for work with files, in addition to **syncing**.
 
 ## Build status
 
@@ -70,7 +70,7 @@ First install [Python](https://www.python.org/downloads/).
 
 > If you don't have *pip*, [install](https://pip.pypa.io/en/stable/installing/) it.
 
-Then:
+Then type in terminal:
 
 ```bash
 pip install sync-folders --upgrade
@@ -194,12 +194,12 @@ Copied: logs.txt to 1_logs.txt
 
 ## API
 
-### main.sync( first_path, second_path )
+### main.sync( path_a, path_b )
 
 Name    | Type     | Argument     | Default | Description
 --------|----------|--------------|---------|------------
-first_path    | `string` | `<required>` | `None`  | the path to the directory
-second_path | `string` | `<required>` | `None`  | the path to the directory
+path_a | `string` | `<required>` | `None`  | the path to the directory
+path_b | `string` | `<required>` | `None`  | the path to the directory
 
 ### main.files( path )
 
@@ -219,12 +219,12 @@ Name    | Type     | Argument     | Default | Description
 --------|----------|--------------|---------|------------
 path   | `string` | `<required>` | `None`  | the path to the file
 
-### main.write_file( path, text )
+### main.write_file( path, data )
 
 Name    | Type     | Argument     | Default | Description
 --------|----------|--------------|---------|------------
 path   | `string` | `<required>` | `None`  | the path to the file
-text | `string` | `<required>` | `None`  | the content
+data | `string` | `<required>` | `None`  | the content
 
 ### main.list_dir( path )
 
@@ -296,8 +296,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Credits
 
-Links to videos which helped me to build this project.
+Links to videos and articles which helped me to build this project:
 
+ - https://realpython.com/working-with-files-in-python/
  - https://www.youtube.com/watch?v=sb3118xptEM&list=PLg5SS_4L6LYt7Wmh8zBKjZ_ltaoDXSEmk&index=4
  - https://www.youtube.com/watch?v=mjyKFuwXVxY&list=PLg5SS_4L6LYt7Wmh8zBKjZ_ltaoDXSEmk&index=5
 
