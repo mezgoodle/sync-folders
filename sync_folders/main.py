@@ -14,7 +14,7 @@ def convert_date(timestamp):
 
 # Function that creates archive
 def create_zip(files, path):
-    with zipfile.ZipFile(path, 'a') as new_zip:
+    with zipfile.ZipFile(path, 'w') as new_zip:
         for name in files:
             new_zip.write(name)
 
