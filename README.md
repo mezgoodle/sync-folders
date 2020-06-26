@@ -1,5 +1,7 @@
 # Synchronization folders package
 
+![PyPI](https://img.shields.io/pypi/v/sync-folders)
+
 Hello everyone! This is the repository of my package on Python "sync-folders".
 
 ## Table of contents
