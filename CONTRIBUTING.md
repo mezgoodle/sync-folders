@@ -26,7 +26,7 @@
 
 #### **Do you have questions about the source code?**
 
-* Ask any question about how to use Caesar-and-Vigenere-ciphers in the [mail to me](mailto:mezgoodle@gmail.com).
+* Ask any question about how to use sync-folders in the [mail to me](mailto:mezgoodle@gmail.com).
 
 Thanks! :heart: :heart: :heart:
 
