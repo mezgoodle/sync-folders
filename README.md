@@ -350,9 +350,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Links to videos and articles which helped me to build this project:
 
- - https://realpython.com/working-with-files-in-python/
- - https://www.youtube.com/watch?v=sb3118xptEM&list=PLg5SS_4L6LYt7Wmh8zBKjZ_ltaoDXSEmk&index=4
- - https://www.youtube.com/watch?v=mjyKFuwXVxY&list=PLg5SS_4L6LYt7Wmh8zBKjZ_ltaoDXSEmk&index=5
+ - [Tutorial on RealPython](https://realpython.com/working-with-files-in-python/)
+ - [Video on YouTube](https://www.youtube.com/watch?v=sb3118xptEM&list=PLg5SS_4L6LYt7Wmh8zBKjZ_ltaoDXSEmk&index=4)
+ - [Video on YouTube](https://www.youtube.com/watch?v=mjyKFuwXVxY&list=PLg5SS_4L6LYt7Wmh8zBKjZ_ltaoDXSEmk&index=5)
 
 ## License
 
